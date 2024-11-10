@@ -24,12 +24,14 @@ def make_train_lr_pipeline():
     lr = LogisticRegression(random_state=SEED, max_iter=5000, class_weight='balanced')
     return Pipeline(steps=[("prep", preproc), ("model", lr)])
 
+
 def make_train_rf_pipeline():
     preproc = ColumnTransformer(transformers=[("cat", OrdinalEncoder(handle_unknown='use_encoded_value',
                                                                      unknown_value=-1), CAT_STR)],
                                 remainder= 'passthrough')
     rf = RandomForestClassifier(random_state=SEED, class_weight='balanced')
     return Pipeline(steps=[("prep", preproc), ("model", rf)])
+
 
 def train_models(data: pd.DataFrame, model_class, params_dict: dict):
     if model_class == 'lr':
@@ -48,12 +50,14 @@ def train_models(data: pd.DataFrame, model_class, params_dict: dict):
     best_estimator = model_cv.best_estimator_
     return result, best_params, best_estimator
 
+
 def create_train(data: list[list]):
     cols_full = ['RowNumber', 'CustomerId', 'Surname', 'CreditScore', 'Geography', 'Gender', 'Age', 'Tenure',
                   'Balance', 'NumOfProducts', 'HasCrCard', 'IsActiveMember', 'EstimatedSalary', 'Exited']
     data = pd.DataFrame(data, columns=cols_full)
     data = data.drop(['RowNumber', 'CustomerId', 'Surname'], axis=1)
     return data
+
 
 def create_inferdf(input: InferenceInput):
     data = pd.DataFrame([[input.CreditScore,
@@ -69,6 +73,7 @@ def create_inferdf(input: InferenceInput):
                   'Balance', 'NumOfProducts', 'HasCrCard', 'IsActiveMember', 'EstimatedSalary'])
     return data
 
+
 def hyprer2dict(hyper: list[HyperInput]) -> dict:
     out_dict = {}
     for hyp in hyper:
@@ -82,12 +87,6 @@ def hyprer2dict(hyper: list[HyperInput]) -> dict:
     return out_dict
 
 
-
 def inference(model, data):
     result = {"Exited_rate": model.predict_proba(data)[0][1]}
     return InferenceOutput(**result)
-
-
-
-
-

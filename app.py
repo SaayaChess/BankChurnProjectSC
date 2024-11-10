@@ -94,16 +94,16 @@ async def inference_model(infer_input: InferenceInput):
         model_class = infer_input.name_model
         if model_class == 'lr':
             if model_lr is None:
-                return JSONResponse(content={"error": "In first lr must be train!"},
+                return JSONResponse(content={"error": "Firstly, the lr must be trained!"},
                                     status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
             return inference(model_lr, df)
         elif model_class == 'rf':
             if model_rf is None:
-                return JSONResponse(content={"error": "In first rf must be train!"},
+                return JSONResponse(content={"error": "Firstly, rf must be trained!"},
                                     status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
             return inference(model_rf, df)
         else:
-            return JSONResponse(content={"error": "lr or rf is supported only!"},
+            return JSONResponse(content={"error": "lr or rf models are supported only!"},
                                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
     except Exception as e:
         logger.error(e)
@@ -117,15 +117,15 @@ async def delete_person(model_class: str):
     if model_class == 'lr':
         if model_lr is not None:
             model_lr = None
-        return JSONResponse(content={"message": "lr was deleted successful!"},
+        return JSONResponse(content={"message": "lr was deleted successfully."},
                             status_code=status.HTTP_200_OK)
     elif model_class == 'rf':
         if model_rf is not None:
             model_rf = None
-        return JSONResponse(content={"message": "rf was deleted successful!"},
+        return JSONResponse(content={"message": "rf was deleted successfully."},
                             status_code=status.HTTP_200_OK)
     else:
-        return JSONResponse(content={"error": "lr or rf is supported only!"},
+        return JSONResponse(content={"error": "lr or rf models are supported only!"},
                             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 

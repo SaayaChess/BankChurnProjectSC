@@ -13,7 +13,6 @@ class HyperInput(BaseModel):
     log_scale: bool
     is_int: bool
 
-
 class TrainInput(BaseModel):
     data: list[list]
     name_model: str
@@ -37,7 +36,6 @@ class InferenceInput(BaseModel):
     HasCrCard: int
     IsActiveMember: int
     EstimatedSalary: float
-
 
 class InferenceOutput(BaseModel):
     Exited_rate: float
