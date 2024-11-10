@@ -33,6 +33,9 @@ It is important to note that traditional models, such as regression, can struggl
 The technique like Random Forest can handle large datasets, such as the underlying one with 10 000 customers, are robust to missing data and can handle noise in the dataset.
 It can efficiently process a high number of features to identify subtle trends as well.
 
+## Purpose of the API
+This API provides a predictive tool for bank customer churn, calculating the likelihood that a customer will leave the bank based on various attributes, including credit score, tenure, balance and account activity. By inputting customer data, users can receive a probability score indicating the risk of churn, helping banks proactively manage customer retention.
+
 ## Requirements
 Requirements are specified in the requirements.txt file. Ensure all packages are installed before executing the code.
 
