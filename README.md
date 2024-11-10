@@ -40,10 +40,10 @@ This API provides a predictive tool for bank customer churn, calculating the lik
 Requirements are specified in the requirements.txt file. Ensure all packages are installed before executing the code.
 
 ## Installation & Setup
-- Clone the Repository: Start by cloning the repository to your local machine.
-- Virtual Environment: Open the project in any IDE, ex.: PyCharm. Create a virtual environment within PyCharm or using the command line to manage dependencies separately from your system environment.
-- Install Dependencies: Install the necessary packages from requirements.
-- Starting the API: Run the main application file app.py to start the API server. 
+- Clone the Repository: start by cloning the repository to your local machine.
+- Virtual Environment: open the project in any IDE, ex.: PyCharm. You can create a virtual environment within PyCharm or using the command line to manage dependencies separately from your system environment.
+- Install Dependencies: install the necessary packages from requirements.
+- Starting the API: run the main application file app.py to start the API server. 
 
 ## Quick Start
 To quickly get the API running, ensure that your virtual environment is active and run the app.py file. 
