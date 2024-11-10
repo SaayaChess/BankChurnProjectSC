@@ -30,7 +30,7 @@ It also makes visible the impact of each input feature on the churn probability,
 It allows to capture interactions between features that may not be obvious, leading to potentially more accurate predictions.
 
 It is important to note that traditional models, such as regression, can struggle with high-dimensional data due to overfitting, multicollinearity and complexity in selecting which features are most important.
-The technique like Random Forest can handle large datasets, such as ours with 10 000 customers, are robust to missing data and can handle noise in the dataset.
+The technique like Random Forest can handle large datasets, such as the underlying one with 10 000 customers, are robust to missing data and can handle noise in the dataset.
 It can efficiently process a high number of features to identify subtle trends as well.
 
 ## Requirements
